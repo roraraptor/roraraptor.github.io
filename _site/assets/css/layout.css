@@ -1,0 +1,4 @@
+/* The main layout of the site */
+.main-grid {
+	display: grid;
+}
