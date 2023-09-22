@@ -1,5 +1,7 @@
 <nav class="pages">
 	{% for item in site.data.navigation %}
-		<a href="{{ item.link }}" class="{% if page.url == item.link %} current{% endif %}">{{ item.name }}</a>
+		{% assign url_stem = page.url | split: "/"| where_exp: "item", "item != ''" | first
+				| prepend: "/" %}
+		<a href="{{ item.link }}" class="{% if url_stem == item.link %} current{% endif %}">{{ item.name }}</a>
 	{% endfor %}
 </nav>
